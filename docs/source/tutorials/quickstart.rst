@@ -57,11 +57,33 @@ Animating a circle
      from manim import *
 
 
-     class CreateCircle(Scene):
-         def construct(self):
-             circle = Circle()  # create a circle
-             circle.set_fill(PINK, opacity=0.5)  # set the color and transparency
-             self.play(Create(circle))  # show the circle on screen
+     from manim import *
+
+class ElectrostaticQuestion(Scene):
+    def construct(self):
+
+        title = Text("JEE Advanced Physics", color=BLUE)
+        question = MathTex(
+            r"\text{Two charges } q \text{ and } 2q ..."
+        )
+
+        self.play(Write(title))
+        self.play(FadeIn(question))
+        self.wait(5)
+
+        step1 = MathTex(
+            r"F = \frac{kq_1q_2}{r^2}"
+        )
+
+        self.play(Transform(question, step1))
+        self.wait()
+
+        ans = MathTex(
+            r"\boxed{F=\cdots}"
+        )
+
+        self.play(Write(ans))
+        self.wait(2)
 
 
 2. Open the command line, navigate to your project folder, and execute
